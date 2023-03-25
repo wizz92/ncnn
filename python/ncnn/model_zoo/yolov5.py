@@ -257,6 +257,10 @@ class YoloV5s:
             pred, self.prob_threshold, self.nms_threshold
         )[0]
 
+        if result is None:
+            print('no result')
+            return []
+
         objects = [
             Detect_Object(
                 obj[5],
