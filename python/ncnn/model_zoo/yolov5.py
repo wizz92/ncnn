@@ -256,6 +256,9 @@ class YoloV5s:
         result = self.non_max_suppression(
             pred, self.prob_threshold, self.nms_threshold
         )[0]
+        
+        if result is None:
+            return []
 
         objects = [
             Detect_Object(
